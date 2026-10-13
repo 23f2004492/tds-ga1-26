@@ -1,0 +1,6 @@
+fastapi>=0.110,<1.0
+uvicorn[standard]>=0.27,<1.0
+openai>=1.40,<3.0
+# Optional learned embedding backend. Remove this line to keep the deployment smaller;
+# without it, the built-in hashed text vectors still provide similarity matching.
+fastembed>=0.5,<1.0

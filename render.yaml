@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: intelligent-ai-caching-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: CACHE_TTL_SECONDS
+        value: "86400"
+      - key: MAX_CACHE_SIZE
+        value: "1500"
+      - key: SIMILARITY_THRESHOLD
+        value: "0.95"
+      - key: AVG_TOKENS_PER_REQUEST
+        value: "2000"
+      - key: MODEL_COST_PER_MILLION_TOKENS
+        value: "1.20"
+      - key: SEMANTIC_BACKEND
+        value: "fastembed"
+      # Add OPENAI_API_KEY from Render's environment settings to use actual model responses.
